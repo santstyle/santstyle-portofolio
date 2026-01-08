@@ -43,5 +43,55 @@ scrollDown.addEventListener("click", function(){
     infoSection.scrollIntoView({ behavior: 'smooth' });
 });
 
-
-
+// About Section Start
+// Animasi scroll untuk cards
+document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.card');
+    
+    // Fungsi untuk mengecek apakah elemen terlihat di viewport
+    function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top <= (window.innerHeight * 0.85) &&
+            rect.bottom >= (window.innerHeight * 0.15)
+        );
+    }
+    
+    // Fungsi untuk menampilkan card dengan animasi berurutan
+    function showCardsOnScroll() {
+        cards.forEach((card, index) => {
+            if (isElementInViewport(card)) {
+                // Delay animasi untuk setiap card agar muncul berurutan
+                setTimeout(() => {
+                    card.classList.add('visible');
+                }, index * 150); // Delay 150ms untuk setiap card
+            }
+        });
+    }
+    
+    // Jalankan saat halaman dimuat
+    showCardsOnScroll();
+    
+    // Jalankan saat scroll
+    window.addEventListener('scroll', showCardsOnScroll);
+    
+    // Tambahkan efek hover yang lebih dinamis
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            const icon = this.querySelector('.card-header i');
+            if (icon) {
+                icon.style.transform = 'scale(1.2)';
+                icon.style.color = '#fff';
+            }
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            const icon = this.querySelector('.card-header i');
+            if (icon) {
+                icon.style.transform = 'scale(1)';
+                icon.style.color = '#c084fc';
+            }
+        });
+    });
+});
+// About Section End
