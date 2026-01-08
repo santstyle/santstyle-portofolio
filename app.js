@@ -32,5 +32,13 @@ menu.addEventListener("click", function(){
 closeIcon.addEventListener("click", function(){
     sideBar.classList.remove("open-sidebar");
     sideBar.classList.add("close-sidebar");
-    
+
 })
+
+// Scroll down functionality //
+const scrollDown = document.querySelector('.scroll-down');
+const infoSection = document.querySelector('.info-section');
+
+scrollDown.addEventListener("click", function(){
+    infoSection.scrollIntoView({ behavior: 'smooth' });
+});
