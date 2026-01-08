@@ -42,3 +42,6 @@ const infoSection = document.querySelector('.info-section');
 scrollDown.addEventListener("click", function(){
     infoSection.scrollIntoView({ behavior: 'smooth' });
 });
+
+
+
