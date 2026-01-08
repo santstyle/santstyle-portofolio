@@ -9,6 +9,7 @@ body{
 
 html{
     scroll-behavior: smooth;
+    scroll-padding-top: 300px;
 }
 
 .container{
@@ -34,7 +35,7 @@ html{
 
 header{
     display: flex;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     left: 0;
@@ -46,6 +47,11 @@ header{
     backdrop-filter: blur(5px);
     box-shadow: 0 0 15px #72a1dea2;
     z-index: 999;
+    transition: transform 0.3s ease;
+}
+
+header.header-hidden {
+    transform: translateY(-100%);
 }
 
 .left{
@@ -258,17 +264,15 @@ header ul a:hover{
 
 /* Card Styling */
 .card {
-    background: rgba(15, 15, 25, 0.7);
+    background: #0f0f19;
     border-radius: 20px;
     overflow: hidden;
     position: relative;
     border: 1px solid rgba(192, 132, 252, 0.2);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
     transform: translateY(30px);
     opacity: 0;
-    box-shadow: 
+    box-shadow:
         0 10px 30px rgba(0, 0, 0, 0.3),
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
@@ -611,7 +615,7 @@ header ul a:hover{
     position: relative;
     width: 80%;
     height: 100vh;
-    margin: 200px auto 700px;
+    margin: 200px auto 500px;
 }
 
 .project-card {
@@ -651,9 +655,10 @@ header ul a:hover{
 .project-info{
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: center;
     justify-content: center;
     flex: 1;
+    text-align: center;
 }
 
 .project-info h1{
@@ -664,6 +669,7 @@ header ul a:hover{
     margin-top: 0;
     margin-bottom: 10px;
     max-width: 450px;
+    text-align: center;
 }
 
 .project-info p{
@@ -672,6 +678,7 @@ header ul a:hover{
     min-width: 300px;
     margin-bottom: 50px;
     margin-top: 0;
+    text-align: center;
 }
 
 .project-info button{
@@ -738,6 +745,7 @@ header ul a:hover{
     flex-direction: column;
     align-items: center;
     position: relative;
+    margin-top: 100px;
 }
 
 .skills-box{
@@ -760,20 +768,24 @@ header ul a:hover{
     position: absolute;
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: center;
     top: 25%;
     left: 5%;
     max-width: 300px;
+    text-align: center;
 }
 
 .Designer h1{
     font-size: 50px;
     display: flex;
     align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .Designer p{
     line-height: 23px;
+    text-align: center;
 }
 
 
@@ -961,8 +973,8 @@ header ul a:hover{
         opacity: 1;
     }
     100%{
-        filter: blur(40px);
-        opacity: 0;
+        filter: blur(0);
+        opacity: 1;
     }
 }
 
@@ -1003,7 +1015,50 @@ header ul a:hover{
         transform: translateX(0) scale(1);
         filter: blur(0px);
     }100%{
-        filter: blur(10px);
+        opacity: 1;
+        transform: translateX(0) scale(1);
+        filter: blur(0px);
+    }
+}
+
+/* FADE IN UP ANIMATION FOR SECTIONS */
+
+.fade-in-up{
+    animation: fadeInUpAnimation both;
+    animation-timeline: view();
+}
+
+@keyframes fadeInUpAnimation{
+    0%{
+        opacity: 0;
+        transform: translateY(100px) scale(0.8);
+    } 35%,65%{
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }100%{
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* STAGGERED FADE IN FOR CARDS */
+
+.stagger-fade{
+    animation: staggerFadeAnimation both;
+    animation-timeline: view();
+    animation-delay: calc(var(--stagger-delay, 0) * 0.2s);
+}
+
+@keyframes staggerFadeAnimation{
+    0%{
+        opacity: 0;
+        transform: translateY(50px);
+    } 35%,65%{
+        opacity: 1;
+        transform: translateY(0);
+    }100%{
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -1022,50 +1077,60 @@ header ul a:hover{
     top: 0;
     bottom: 70%;
     width: 0%;
-    background-color: #000000b8;
+    background-color: #000;
     z-index: 999;
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.479);
-    backdrop-filter: blur(10px);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
     opacity: 0;
-    border-bottom-left-radius: 100%;
-    
+    border-bottom-left-radius: 50px;
+
+}
+
+/* Mobile navigation z-index */
+@media screen and (max-width: 700px) {
+    .sidebar {
+        z-index: 1000;
+    }
 }
 
 .close-icon{
-    font-size: 50px;
+    font-size: 30px;
     color: lightgray;
     padding-left: 10px;
     cursor: pointer;
 }
 
 .sidebar ul{
-    padding-left: 20px;
+    padding-left: 15px;
 }
 
 .sidebar ul li{
     list-style: none;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .sidebar ul li a{
     text-decoration: none;
     color: lightgray;
-    font-size: 30px;
-    font-weight: 900;
-    text-shadow:0 0 15px #4c4c4c;
+    font-size: 20px;
+    font-weight: 600;
 }
 
 .social-sidebar{
-    padding-left: 20px;
-    margin-top: 60px;
+    padding-left: 15px;
+    margin-top: 30px;
     text-wrap: nowrap;
 }
 
 .social-sidebar a{
-    font-size: 35px;
+    font-size: 25px;
     padding: 5px 5px;
     cursor: pointer;
     transition: 0.5s;
+    color: white;
+}
+
+.social-sidebar a:active{
+    transform: scale(1.2);
 }
 
 /* Sidebar Open ANimation */
@@ -1182,14 +1247,14 @@ header ul a:hover{
     .autoBlur{
         animation: none;
     }
-    
+
     .hero{
         flex-direction: column;
         top:0;
         bottom: 0;
         left: 0;
         right:0;
-        
+
     }
     .hero-info{
         bottom: 5%;
@@ -1218,54 +1283,65 @@ header ul a:hover{
     .card video{
         width: 100%;
     }
-    
+
     .container{
         height: 100%;
     }
 
     .project-vidbox video{
-        width: 250px;
-        margin-left: -100px;
+        width: 300px;
+        margin-left: 0;
     }
 
     .project-info{
         overflow: hidden;
         padding-left: 0;
-        margin-left: -50px;
+        margin-left: 0;
     }
 
     .project-info h1{
-        font-size: 20px;
-        max-width: 200px;
+        font-size: 24px;
+        max-width: 250px;
         text-wrap: wrap;
     }
 
     .project-info p{
-        font-size: 10px;
+        font-size: 12px;
         text-wrap: wrap;
-        max-width: 200px;
+        max-width: 250px;
         min-width: 0;
     }
 
     .project-info button{
-        padding: 5px 10px;
+        padding: 8px 15px;
     }
 
     .my-project{
-        margin-bottom: 600px;
+        margin: 200px auto 700px;
+        scale: 1.1;
     }
 
     .project-card{
         flex-direction: column;
         gap: 30px;
     }
-    
+
     .project-vidbox{
         min-width: 200px;
     }
 
     .project-info{
         width: 85%;
+        text-align: center;
+        margin: 0 auto;
+        align-self: center;
+    }
+
+    .fadein-left{
+        animation: none;
+        transform: none !important;
+        opacity: 1 !important;
+        filter: none !important;
     }
 
     .project-info h1{
@@ -1277,8 +1353,9 @@ header ul a:hover{
     }
 
     .Designer{
-        top: 15%;
-        left: 18%;
+        top: 35%;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     .Designer h1{
@@ -1288,11 +1365,19 @@ header ul a:hover{
 
     .coder{
         top: 50%;
-        left: 18%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        align-items: center;
+        text-align: center;
     }
 
     .coder h1{
         margin-bottom: 0;
+        text-align: center;
+    }
+
+    .coder p{
+        text-align: center;
     }
 
     .slider .list .item img{
@@ -1385,7 +1470,9 @@ header ul a:hover{
     }
 
     .project-info{
-        margin-left: -80px;
+        width: 85%;
+        align-self: center;
+        text-align: center;
     }
 
     .skills-box{
@@ -1633,7 +1720,8 @@ header ul a:hover{
 
 @media (max-width: 768px) {
     .footer {
-        padding: 3rem 0 1.5rem;
+        padding: 2rem 0 1.5rem;
+        margin-top: 50px;
     }
 
     .footer-content {
@@ -1646,33 +1734,123 @@ header ul a:hover{
         text-align: center;
     }
 
+    .footer-brand-name {
+        font-size: 1.5rem;
+    }
+
+    .footer-tagline {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+
+    .footer-quote {
+        text-align: center;
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
+
+    .footer-links h3,
+    .footer-connect h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .footer-links ul {
+        padding: 0;
+        margin: 0;
+    }
+
+    .footer-links li {
+        margin-bottom: 0.4rem;
+    }
+
+    .footer-links a {
+        font-size: 0.9rem;
+    }
+
     .footer-social {
         justify-content: center;
+        gap: 0.8rem;
+    }
+
+    .social-link {
+        padding: 0.8rem 1rem;
+        font-size: 0.9rem;
     }
 
     .footer-bottom {
         flex-direction: column;
         text-align: center;
         gap: 1rem;
+        padding-top: 1.5rem;
     }
 
-    .footer-quote {
-        text-align: center;
+    .footer-copyright p {
+        font-size: 0.85rem;
+    }
+
+    .footer-tech {
+        font-size: 0.8rem;
     }
 }
 
 @media (max-width: 480px) {
+    .footer {
+        padding: 2rem 0 1.5rem;
+    }
+
     .footer-content {
         padding: 0 1rem;
+        gap: 2rem;
+    }
+
+    .footer-brand-name {
+        font-size: 1.4rem;
+    }
+
+    .footer-tagline {
+        font-size: 0.9rem;
+    }
+
+    .footer-quote {
+        display: none;
+    }
+
+    .footer-links h3,
+    .footer-connect h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.7rem;
+    }
+
+    .footer-links a {
+        font-size: 0.9rem;
+    }
+
+    .footer-social {
+        gap: 0.8rem;
+        justify-content: center;
     }
 
     .social-link {
-        padding: 0.6rem 0.8rem;
-        font-size: 0.8rem;
+        padding: 0.8rem 1rem;
+        font-size: 0.9rem;
     }
 
-    .footer-links a:hover {
-        transform: none;
+    .footer-bottom {
+        padding-top: 1.5rem;
+        gap: 1rem;
+        flex-direction: column;
+        text-align: left;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .footer-copyright p {
+        font-size: 0.85rem;
+    }
+
+    .footer-tech {
+        font-size: 0.8rem;
     }
 }
 

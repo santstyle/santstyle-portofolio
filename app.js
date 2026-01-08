@@ -32,8 +32,34 @@ menu.addEventListener("click", function(){
 closeIcon.addEventListener("click", function(){
     sideBar.classList.remove("open-sidebar");
     sideBar.classList.add("close-sidebar");
+});
 
-})
+// Close sidebar when clicking outside
+document.addEventListener("click", function(event){
+    if (!sideBar.contains(event.target) && !menu.contains(event.target) && sideBar.classList.contains("open-sidebar")) {
+        sideBar.classList.remove("open-sidebar");
+        sideBar.classList.add("close-sidebar");
+    }
+});
+
+// Sticky header on scroll up with threshold
+let lastScrollTop = 0;
+let scrollThreshold = 500; // Minimum scroll up distance to show header
+const header = document.querySelector('header');
+
+window.addEventListener('scroll', function() {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop) {
+        // Scrolling down
+        header.classList.add('header-hidden');
+    } else if (lastScrollTop - scrollTop > scrollThreshold) {
+        // Scrolling up more than threshold
+        header.classList.remove('header-hidden');
+    }
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+});
 
 // Scroll down functionality //
 const scrollDown = document.querySelector('.scroll-down');
@@ -42,6 +68,31 @@ const infoSection = document.querySelector('.info-section');
 scrollDown.addEventListener("click", function(){
     infoSection.scrollIntoView({ behavior: 'smooth' });
 });
+
+// Move footer-bottom after footer-connect on mobile
+function adjustFooter() {
+    const footerConnect = document.querySelector('.footer-connect');
+    const footerBottom = document.querySelector('.footer-bottom');
+    const footer = document.querySelector('.footer');
+
+    if (window.innerWidth <= 768) {
+        // Move footer-bottom after footer-connect inside footer-content
+        if (!footerConnect.parentNode.contains(footerBottom)) {
+            footerConnect.insertAdjacentElement('afterend', footerBottom);
+        }
+    } else {
+        // Move back to original position if not mobile
+        if (footer.contains(footerBottom) && footerBottom.parentNode !== footer) {
+            footer.appendChild(footerBottom);
+        }
+    }
+}
+
+// Initial adjustment
+adjustFooter();
+
+// Adjust on resize
+window.addEventListener('resize', adjustFooter);
 
 // About Section Start
 // Animasi scroll untuk cards
