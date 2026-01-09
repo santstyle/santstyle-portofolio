@@ -1,55 +1,59 @@
 // Prevent browser scroll restoration
-history.scrollRestoration = 'manual';
+history.scrollRestoration = "manual";
 
 // Scroll to top immediately to prevent jumping to sections
-window.addEventListener('DOMContentLoaded', function() {
+window.addEventListener("DOMContentLoaded", function () {
     window.scrollTo(0, 0);
 });
 
-window.addEventListener('load', function() {
+window.addEventListener("load", function () {
     window.scrollTo(0, 0);
 });
 
-const video1 = document.getElementById('projectVideo1');
-const video2 = document.getElementById('projectVideo2');
-const video3 = document.getElementById('projectVideo3');
+const video1 = document.getElementById("projectVideo1");
+const video2 = document.getElementById("projectVideo2");
+const video3 = document.getElementById("projectVideo3");
 
 // Sidebar elements //
-document.addEventListener('DOMContentLoaded', function() {
-    const sideBar = document.querySelector('.sidebar');
-    const menu = document.querySelector('.menu-icon');
-    const closeIcon = document.querySelector('.close-icon');
+document.addEventListener("DOMContentLoaded", function () {
+    const sideBar = document.querySelector(".sidebar");
+    const menu = document.querySelector(".menu-icon");
+    const closeIcon = document.querySelector(".close-icon");
 
-    menu.addEventListener("click", function(){
-        sideBar.classList.remove("close-sidebar")
-        sideBar.classList.add("open-sidebar")
+    menu.addEventListener("click", function () {
+        sideBar.classList.remove("close-sidebar");
+        sideBar.classList.add("open-sidebar");
     });
 
-    closeIcon.addEventListener("click", function(){
+    closeIcon.addEventListener("click", function () {
         sideBar.classList.remove("open-sidebar");
         sideBar.classList.add("close-sidebar");
     });
 
     // Close sidebar when clicking outside
-    document.addEventListener("click", function(event){
-        if (!sideBar.contains(event.target) && !menu.contains(event.target) && sideBar.classList.contains("open-sidebar")) {
+    document.addEventListener("click", function (event) {
+        if (
+            !sideBar.contains(event.target) &&
+            !menu.contains(event.target) &&
+            sideBar.classList.contains("open-sidebar")
+        ) {
             sideBar.classList.remove("open-sidebar");
             sideBar.classList.add("close-sidebar");
         }
     });
 });
 
-const hoverSign = document.querySelector('.hover-sign');
+const hoverSign = document.querySelector(".hover-sign");
 
-const videoList =[video1, video2, video3];
+const videoList = [video1, video2, video3];
 
-videoList.forEach (function(video){
+videoList.forEach(function (video) {
     if (video) {
-        video.addEventListener("mouseover", function(){
+        video.addEventListener("mouseover", function () {
             video.play();
             if (hoverSign) hoverSign.classList.add("active");
         });
-        video.addEventListener("mouseout", function(){
+        video.addEventListener("mouseout", function () {
             video.pause();
             if (hoverSign) hoverSign.classList.remove("active");
         });
@@ -59,29 +63,30 @@ videoList.forEach (function(video){
 // Sticky header on scroll up with threshold
 let lastScrollTop = 0;
 let scrollThreshold = 500; // Minimum scroll up distance to show header
-const header = document.querySelector('header');
+const header = document.querySelector("header");
 
-window.addEventListener('scroll', function() {
+window.addEventListener("scroll", function () {
     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-    if (window.innerWidth > 700) { // Only hide header on desktop
+    if (window.innerWidth > 700) {
+        // Only hide header on desktop
         if (scrollTop > lastScrollTop) {
             // Scrolling down
-            header.classList.add('header-hidden');
+            header.classList.add("header-hidden");
         } else if (lastScrollTop - scrollTop > scrollThreshold) {
             // Scrolling up more than threshold
-            header.classList.remove('header-hidden');
+            header.classList.remove("header-hidden");
         }
     } else {
         // On mobile, ensure header is always visible
-        header.classList.remove('header-hidden');
+        header.classList.remove("header-hidden");
     }
 
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
 });
 
 // Scroll to top on page load to prevent jumping to sections
-window.addEventListener('load', function() {
+window.addEventListener("load", function () {
     // Remove hash from URL to prevent jumping to sections
     if (window.location.hash) {
         history.replaceState(null, null, window.location.pathname);
@@ -90,34 +95,34 @@ window.addEventListener('load', function() {
 });
 
 // Scroll down functionality //
-const scrollDown = document.getElementById('scroll-down');
+const scrollDown = document.getElementById("scroll-down");
 
 if (scrollDown) {
-    console.log('Scroll down element found');
-    scrollDown.addEventListener("click", function(){
-        console.log('Scroll down button clicked');
-        const aboutSection = document.getElementById('about');
+    console.log("Scroll down element found");
+    scrollDown.addEventListener("click", function () {
+        console.log("Scroll down button clicked");
+        const aboutSection = document.getElementById("about");
         if (aboutSection) {
-            console.log('About section found, scrolling to about section');
-            aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            console.log("About section found, scrolling to about section");
+            aboutSection.scrollIntoView({ behavior: "smooth", block: "start" });
         } else {
-            console.log('About section not found');
+            console.log("About section not found");
         }
     });
 } else {
-    console.log('Scroll down element not found');
+    console.log("Scroll down element not found");
 }
 
 // Move footer-bottom after footer-connect on mobile
 function adjustFooter() {
-    const footerConnect = document.querySelector('.footer-connect');
-    const footerBottom = document.querySelector('.footer-bottom');
-    const footer = document.querySelector('.footer');
+    const footerConnect = document.querySelector(".footer-connect");
+    const footerBottom = document.querySelector(".footer-bottom");
+    const footer = document.querySelector(".footer");
 
     if (window.innerWidth <= 768) {
         // Move footer-bottom after footer-connect inside footer-content
         if (!footerConnect.parentNode.contains(footerBottom)) {
-            footerConnect.insertAdjacentElement('afterend', footerBottom);
+            footerConnect.insertAdjacentElement("afterend", footerBottom);
         }
     } else {
         // Move back to original position if not mobile
@@ -131,19 +136,19 @@ function adjustFooter() {
 adjustFooter();
 
 // Adjust on resize
-window.addEventListener('resize', adjustFooter);
+window.addEventListener("resize", adjustFooter);
 
 // About Section Start
 // Animasi scroll untuk cards
-document.addEventListener('DOMContentLoaded', function() {
-    const cards = document.querySelectorAll('.card');
+document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll(".card");
 
     // Fungsi untuk mengecek apakah elemen terlihat di viewport
     function isElementInViewport(el) {
         const rect = el.getBoundingClientRect();
         return (
-            rect.top <= (window.innerHeight * 0.85) &&
-            rect.bottom >= (window.innerHeight * 0.15)
+            rect.top <= window.innerHeight * 0.85 &&
+            rect.bottom >= window.innerHeight * 0.15
         );
     }
 
@@ -153,7 +158,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (isElementInViewport(card)) {
                 // Delay animasi untuk setiap card agar muncul berurutan
                 setTimeout(() => {
-                    card.classList.add('visible');
+                    card.classList.add("visible");
                 }, index * 150); // Delay 150ms untuk setiap card
             }
         });
@@ -163,23 +168,22 @@ document.addEventListener('DOMContentLoaded', function() {
     showCardsOnScroll();
 
     // Jalankan saat scroll
-    window.addEventListener('scroll', showCardsOnScroll);
+    window.addEventListener("scroll", showCardsOnScroll);
 
     // Tambahkan efek hover yang lebih dinamis
-    cards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            const icon = this.querySelector('.card-header i');
+    cards.forEach((card) => {
+        card.addEventListener("mouseenter", function () {
+            const icon = this.querySelector(".card-header i");
             if (icon) {
-                icon.style.transform = 'scale(1.2)';
-
+                icon.style.transform = "scale(1.2)";
             }
         });
 
-        card.addEventListener('mouseleave', function() {
-            const icon = this.querySelector('.card-header i');
+        card.addEventListener("mouseleave", function () {
+            const icon = this.querySelector(".card-header i");
             if (icon) {
-                icon.style.transform = 'scale(1)';
-                icon.style.color = '#c084fc';
+                icon.style.transform = "scale(1)";
+                icon.style.color = "#c084fc";
             }
         });
     });
@@ -187,80 +191,5 @@ document.addEventListener('DOMContentLoaded', function() {
 // About Section End
 
 // Section Project Start
-// Projects Section Animation & Filter
-document.addEventListener('DOMContentLoaded', function() {
-    const projectCards = document.querySelectorAll('.project-card');
-    const filterButtons = document.querySelectorAll('.filter-btn');
 
-    // Animasi muncul saat scroll
-    function animateProjectsOnScroll() {
-        projectCards.forEach((card, index) => {
-            const cardTop = card.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-
-            if (cardTop < windowHeight * 0.85) {
-                setTimeout(() => {
-                    card.classList.add('visible');
-                }, index * 150);
-            }
-        });
-    }
-
-    // Filter projects berdasarkan kategori
-    function filterProjects(category) {
-        projectCards.forEach(card => {
-            if (category === 'all' || card.dataset.category === category) {
-                card.style.display = 'block';
-                setTimeout(() => {
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, 100);
-            } else {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                setTimeout(() => {
-                    card.style.display = 'none';
-                }, 300);
-            }
-        });
-    }
-
-    // Setup filter buttons
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Remove active class from all buttons
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-
-            // Add active class to clicked button
-            this.classList.add('active');
-
-            // Filter projects
-            const filter = this.dataset.filter;
-            filterProjects(filter);
-        });
-    });
-
-    // Animate projects on load
-    animateProjectsOnScroll();
-
-    // Animate on scroll
-    window.addEventListener('scroll', animateProjectsOnScroll);
-
-    // Add hover effects to project cards
-    projectCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            const badge = this.querySelector('.project-badge');
-            if (badge) {
-                badge.style.transform = 'translateY(-5px)';
-            }
-        });
-
-        card.addEventListener('mouseleave', function() {
-            const badge = this.querySelector('.project-badge');
-            if (badge) {
-                badge.style.transform = 'translateY(0)';
-            }
-        });
-    });
-});
 // Section Project End
