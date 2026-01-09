@@ -7,11 +7,24 @@ body {
 }
 
 
+body::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
 
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 70px;
 }
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 
 .container {
   position: relative;
@@ -26,11 +39,16 @@ html {
 
 .back-vid {
   position: fixed;
-  right: 0;
-  bottom: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   z-index: -1;
-  mix-blend-mode: overlay;
+  pointer-events: none;
 }
+
+
+
 
 header {
   display: flex;
@@ -1341,18 +1359,7 @@ header ul a:hover {
   box-shadow: 0 0 15px #72a1de81;
 }
 
-.footer {
-  display: flex;
-  justify-content: space-between;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  height: 70px;
-  background-color: rgba(255, 255, 255, 0.121);
-  z-index: 999;
-  padding: 0 3rem;
-}
+
 
 
 .autoBlur {
@@ -2740,5 +2747,4 @@ header ul a:hover {
 
 body, html, .container, .projects-section, .projects-wrapper {
     max-width: 100vw !important;
-    overflow-x: hidden !important;
 }
