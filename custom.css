@@ -570,7 +570,7 @@ header ul a:hover {
     background-position: 200%;
   }
 }
-
+/*Section Skills Start*/
 .skills-video-box {
   position: absolute;
   right: 3%;
@@ -631,6 +631,8 @@ header ul a:hover {
 .scroll-down:hover {
   transform: scale(1.1);
 }
+/*Section Skills End */
+
 
 /*Section Project Start */
 .projects-section {
@@ -1935,7 +1937,6 @@ header ul a:hover {
   padding: 3rem 0 2rem;
   position: relative;
   overflow: hidden;
-  margin-top: 100px;
   height: auto;
 }
 

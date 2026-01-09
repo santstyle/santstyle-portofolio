@@ -1,7 +1,7 @@
 {
-  "name": "animated-portfolio",
+  "name": "santstyle-portfolio",
   "version": "1.0.0",
-  "description": "Animated Portfolio Website",
+  "description": "SantStyle Portfolio Website",
   "main": "index.html",
   "scripts": {
     "build-css": "tailwindcss -i input.css -o style.css",

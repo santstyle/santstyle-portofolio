@@ -53,7 +53,7 @@ videoList.forEach(function (video) {
 });
 
 let lastScrollTop = 0;
-let scrollThreshold = 500; 
+let scrollThreshold = 500;
 const header = document.querySelector("header");
 window.addEventListener("scroll", function () {
     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -68,7 +68,7 @@ window.addEventListener("scroll", function () {
         header.classList.remove("header-hidden");
     }
 
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; 
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 });
 
 window.addEventListener("load", function () {
@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (isElementInViewport(card)) {
                 setTimeout(() => {
                     card.classList.add("visible");
-                }, index * 150); 
+                }, index * 150);
             }
         });
     }
@@ -414,3 +414,7 @@ window.addEventListener('load', function () {
     }
 });
 // Section Project End
+
+// Section Skills Start
+
+// Section Skills End
