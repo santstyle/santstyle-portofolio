@@ -2,7 +2,7 @@ const video1 = document.getElementById('projectVideo1');
 const video2 = document.getElementById('projectVideo2');
 const video3 = document.getElementById('projectVideo3');
 
-// Sidebar elements //
+// Sidebar
 document.addEventListener('DOMContentLoaded', function() {
     const sideBar = document.querySelector('.sidebar');
     const menu = document.querySelector('.menu-icon');
@@ -82,8 +82,3 @@ function adjustFooter() {
 adjustFooter();
 
 window.addEventListener('resize', adjustFooter);
-
-// About Section Start
-// Animasi scroll untuk cards
-
-// About Section End
