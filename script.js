@@ -416,5 +416,119 @@ window.addEventListener('load', function () {
 // Section Project End
 
 // Section Skills Start
+// ========== EXPERTISE SECTION ANIMATIONS ==========
 
+document.addEventListener('DOMContentLoaded', function () {
+    // Animate skill bars on scroll
+    function animateSkillBars() {
+        const skillCategories = document.querySelectorAll('.skill-category');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const skillBars = entry.target.querySelectorAll('.skill-progress');
+                    skillBars.forEach(bar => {
+                        const width = bar.style.width;
+                        bar.style.width = '0';
+
+                        setTimeout(() => {
+                            bar.style.width = width;
+                        }, 300);
+                    });
+
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        skillCategories.forEach(category => {
+            observer.observe(category);
+        });
+    }
+
+    // Animate counter for stats
+    function animateCounters() {
+        const counters = document.querySelectorAll('.stat-number[data-count]');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = parseInt(counter.getAttribute('data-count'));
+                    const duration = 2000;
+                    const step = target / (duration / 16);
+                    let current = 0;
+
+                    const updateCounter = () => {
+                        current += step;
+                        if (current < target) {
+                            counter.textContent = Math.floor(current);
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            counter.textContent = target;
+                            if (counter.parentElement.classList.contains('stat-box')) {
+                                counter.textContent = target + (target === 95 ? '%' : '+');
+                            }
+                        }
+                    };
+
+                    updateCounter();
+                    observer.unobserve(counter);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => {
+            observer.observe(counter);
+        });
+    }
+
+    // Initialize animations
+    animateSkillBars();
+    animateCounters();
+
+    // Add hover effects for skill categories
+    const skillCategories = document.querySelectorAll('.skill-category');
+    skillCategories.forEach(category => {
+        category.addEventListener('mouseenter', function () {
+            if (window.innerWidth > 768) {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            }
+        });
+
+        category.addEventListener('mouseleave', function () {
+            if (window.innerWidth > 768) {
+                this.style.transform = 'translateY(-10px) scale(1)';
+            }
+        });
+
+        // Mobile touch feedback
+        category.addEventListener('touchstart', function () {
+            if (window.innerWidth <= 768) {
+                this.style.transform = 'scale(0.98)';
+            }
+        });
+
+        category.addEventListener('touchend', function () {
+            if (window.innerWidth <= 768) {
+                this.style.transform = 'scale(1)';
+            }
+        });
+    });
+});
+
+// Re-animate on window resize for responsive
+let resizeTimeout2;
+window.addEventListener('resize', function () {
+    clearTimeout(resizeTimeout2);
+    resizeTimeout2 = setTimeout(() => {
+        const skillBars = document.querySelectorAll('.skill-progress');
+        skillBars.forEach(bar => {
+            bar.style.transition = 'none';
+            setTimeout(() => {
+                bar.style.transition = 'width 1.5s cubic-bezier(0.65, 0, 0.35, 1)';
+            }, 50);
+        });
+    }, 250);
+});
 // Section Skills End
