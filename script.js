@@ -148,7 +148,7 @@ function initProjectFilters() {
     console.log('Initializing project filters...');
 
     const filterButtons = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-card');
+    const projectCards = document.querySelectorAll('#projects .projects-list .project-card');
 
     console.log('Found', filterButtons.length, 'filter buttons');
     console.log('Found', projectCards.length, 'project cards');
