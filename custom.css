@@ -632,10 +632,8 @@ header ul a:hover {
   transform: scale(1.1);
 }
 .expertise-section {
-    padding: 100px 20px;
     position: relative;
     overflow: hidden;
-    margin-top: 50px;
 }
 
 .expertise-section::before {
@@ -1232,9 +1230,38 @@ header ul a:hover {
 
 .projects-grid {
     display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-bottom: 60px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.projects-list {
+    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 30px;
     margin-bottom: 60px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.projects-grid.single-project {
+    display: flex;
+    justify-content: center;
+    padding: 50px 0;
+}
+
+.projects-grid.single-project .project-card {
+    max-width: 350px;
+    width: 100%;
+}
+
+.projects-grid.single-project .project-image {
+    height: auto;
+    aspect-ratio: 16/9;
 }
 
 .project-card {
@@ -1275,7 +1302,20 @@ header ul a:hover {
     color: rgba(139, 92, 246, 0.8);
     z-index: 2;
     position: relative;
+    width: 100%;
+    height: 100%;
     transition: all 0.3s ease;
+}
+
+.project-icon video,
+.project-icon iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .project-card:hover .project-icon {
@@ -3061,152 +3101,7 @@ header ul a:hover {
   }
 }
 
-@media screen and (max-width: 768px) {
-    /* Force projects section to be responsive */
-    .projects-section {
-        padding: 40px 15px !important;
-        margin: 20px auto 0 auto !important;
-        max-width: 100% !important;
-        overflow: hidden !important;
-        text-align: center !important;
-    }
 
-    .projects-wrapper {
-        max-width: 100% !important;
-        margin: 0 auto !important;
-        padding: 0 10px !important;
-        text-align: center !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
-
-    }
-    .projects-grid {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 15px !important;
-        padding: 0 !important;
-        margin: 0 auto !important;
-        width: 100% !important;
-        max-width: 400px !important;
-        align-items: center !important;
-        justify-content: center !important;
-    }
-
-    .project-card {
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 0 0 15px 0 !important;
-        display: block !important;
-        opacity: 1 !important;
-        transform: none !important;
-        animation: none !important;
-        border-radius: 12px !important;
-    }
-
-    .project-filters {
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 8px !important;
-        padding: 0 10px !important;
-        margin: 20px auto !important;
-        width: 100% !important;
-        max-width: 100% !important;
-    }
-
-    .filter-btn {
-        width: 100% !important;
-        padding: 12px 8px !important;
-        font-size: 0.8rem !important;
-        text-align: center !important;
-        white-space: nowrap !important;
-        overflow: hidden !important;
-        text-overflow: ellipsis !important;
-        -webkit-tap-highlight-color: rgba(139, 92, 246, 0.3) !important;
-        touch-action: manipulation !important;
-    }
-
-    .filter-btn.active {
-        background: linear-gradient(135deg, #7c3aed, #8b5cf6) !important;
-        transform: scale(0.98) !important;
-    }
-
-    .project-content {
-        padding: 15px !important;
-        text-align: center !important;
-    }
-
-    .project-header {
-        flex-direction: column !important;
-        align-items: center !important;
-        gap: 5px !important;
-        margin-bottom: 10px !important;
-        text-align: center !important;
-    }
-
-    .project-header h3 {
-        font-size: 1.1rem !important;
-        line-height: 1.3 !important;
-        width: 100% !important;
-        text-align: center !important;
-        word-wrap: break-word !important;
-        overflow-wrap: break-word !important;
-    }
-
-    .project-category {
-        margin-left: 0 !important;
-        font-size: 0.7rem !important;
-        padding: 3px 8px !important;
-        word-wrap: break-word !important;
-        overflow-wrap: break-word !important;
-    }
-
-    .project-desc {
-        font-size: 0.85rem !important;
-        line-height: 1.4 !important;
-        margin-bottom: 15px !important;
-        text-align: center !important;
-        word-wrap: break-word !important;
-        overflow-wrap: break-word !important;
-    }
-
-    .project-links {
-        gap: 8px !important;
-    }
-
-    .project-btn {
-        width: 100% !important;
-        padding: 10px !important;
-        font-size: 0.85rem !important;
-    }
-
-    .project-stats {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 15px !important;
-        padding: 20px 10px !important;
-        margin: 20px 0 !important;
-        width: 100% !important;
-    }
-
-    .stat-item {
-        padding: 10px !important;
-    }
-
-    .stat-number {
-        font-size: 1.8rem !important;
-    }
-
-    .stat-label {
-        font-size: 0.8rem !important;
-    }
-
-    .project-card,
-    .filter-btn,
-    .project-btn {
-        transition: none !important;
-    }
-}
 
 @media screen and (max-width: 480px) {
     /* Extra small phones */

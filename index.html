@@ -266,39 +266,39 @@
                         </h2>
                         <p class="projects-sub">Building, breaking, and creating in digital space</p>
                         <div class="project-filters">
-                            <button class="filter-btn active" data-filter="all" onclick="return false;">All
+                            <button class="filter-btn active" data-filter="all">All
                                 Projects</button>
-                            <button class="filter-btn" data-filter="cybersecurity"
-                                onclick="return false;">Cybersecurity</button>
-                            <button class="filter-btn" data-filter="programming"
-                                onclick="return false;">Programming</button>
-                            <button class="filter-btn" data-filter="video" onclick="return false;">Video
+                            <button class="filter-btn" data-filter="cybersecurity">Cybersecurity</button>
+                            <button class="filter-btn" data-filter="programming">Programming</button>
+                            <button class="filter-btn" data-filter="video">Video
                                 Editing</button>
                         </div>
                     </div>
-                    <!-- Projects Grid -->
-                    <div class="projects-grid">
+                    <!-- Projects List -->
+                    <div class="projects-list">
                         <!-- Cybersecurity Project -->
                         <div class="project-card stagger-fade" data-category="cybersecurity"
                             style="--stagger-delay: 0;">
                             <div class="project-image">
                                 <div class="project-icon">
-                                    <i class='bx bx-shield-quarter'></i>
+                                    <video id="projectVideo1" src="videos/tryhackme-walkthrough.mp4" autoplay muted loop
+                                        playsinline></video>
                                 </div>
                                 <div class="project-overlay"></div>
                             </div>
                             <div class="project-content">
                                 <div class="project-header">
-                                    <h3>TryHackme Wolkthrough</h3>
+                                    <h3>TryHackme Walkthrough</h3>
                                     <span class="project-category">Cybersecurity</span>
                                 </div>
                                 <p class="project-desc">
-                                    Comprehensive penetration testing reports, vulnerability assessments, and security
-                                    audit
-                                    documentation. Real-world projects demonstrating ethical hacking methodologies.
+                                    Personal documentation for TryHackMe machines. Each machine has its own folder
+                                    containing step-by-step exploitation
+                                    notes, summaries, and screenshots. All sensitive data such as flags have been
+                                    filtered.
                                 </p>
                                 <div class="project-links">
-                                    <a href="https://github.com/santstyle" target="_blank"
+                                    <a href="https://github.com/santstyle/THM" target="_blank"
                                         class="project-btn github-btn">
                                         <i class='bx bxl-github'></i>
                                         <span>View on GitHub</span>
@@ -307,10 +307,12 @@
                             </div>
                         </div>
                         <!-- Programming Project -->
+                        <!-- Website Rimuru Fanbase -->
                         <div class="project-card stagger-fade" data-category="programming" style="--stagger-delay: 1;">
                             <div class="project-image">
                                 <div class="project-icon">
-                                    <i class='bx bx-code-alt'></i>
+                                    <video id="projectVideo2" src="videos/website-rimurufanbase.mp4" autoplay muted loop
+                                        playsinline></video>
                                 </div>
                                 <div class="project-overlay"></div>
                             </div>
@@ -320,17 +322,58 @@
                                     <span class="project-category">Programming</span>
                                 </div>
                                 <p class="project-desc">
-                                    Full-stack web applications, responsive websites, and interactive web tools. Built
-                                    with
-                                    modern
-                                    technologies and frameworks for optimal performance.
+                                    This is my second project in the coding learning phase, this is a fanbase website
+                                    for the character Rimuru Tempest in
+                                    the anime Tensei Shitara Slime Dataken, currently it is still under construction and
+                                    I myself am still learning about
+                                    what things might be needed to manage this website, so see you when this website is
+                                    finished.
                                 </p>
                                 <div class="project-links">
-                                    <a href="#" target="_blank" class="project-btn live-btn">
+                                    <a href="https://rimurufanbase.vercel.app/" target="_blank"
+                                        class="project-btn live-btn">
                                         <i class='bx bx-globe'></i>
                                         <span>Live Website</span>
                                     </a>
-                                    <a href="https://github.com/santstyle" target="_blank"
+                                    <a href="https://github.com/santstyle/rimuru-fanbase" target="_blank"
+                                        class="project-btn github-btn">
+                                        <i class='bx bxl-github'></i>
+                                        <span>GitHub Repo</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Website Portofolio Tailwind Css -->
+                        <div class="project-card stagger-fade" data-category="programming" style="--stagger-delay: 1;">
+                            <div class="project-image">
+                                <div class="project-icon">
+                                    <video id="projectVideo2" src="videos/website-portofolio1.mp4" autoplay muted loop
+                                        playsinline></video>
+                                </div>
+                                <div class="project-overlay"></div>
+                            </div>
+                            <div class="project-content">
+                                <div class="project-header">
+                                    <h3>Website Simple Portofolio</h3>
+                                    <span class="project-category">Programming</span>
+                                </div>
+                                <p class="project-desc">
+                                    Simple Portfolio Website built using Tailwind CSS v3.
+                                    This project was created as part of a coding session (Ngobar #32) by Web Programming
+                                    UNPAS, focusing on implementing
+                                    modern UI layout, responsive design, and utility-first CSS workflow.
+
+                                    Through this project, I learned how to structure a portfolio layout efficiently
+                                    using Tailwind CSS without relying on
+                                    any framework.
+                                </p>
+                                <div class="project-links">
+                                    <a href="https://santstyleportofolio-v1.vercel.app/" target="_blank"
+                                        class="project-btn live-btn">
+                                        <i class='bx bx-globe'></i>
+                                        <span>Live Website</span>
+                                    </a>
+                                    <a href="https://github.com/santstyle/portofolio-tailwind-css" target="_blank"
                                         class="project-btn github-btn">
                                         <i class='bx bxl-github'></i>
                                         <span>GitHub Repo</span>
@@ -342,22 +385,30 @@
                         <div class="project-card stagger-fade" data-category="video" style="--stagger-delay: 2;">
                             <div class="project-image">
                                 <div class="project-icon">
-                                    <i class='bx bx-video-recording'></i>
+                                    <iframe src="https://www.youtube.com/embed/oGnX1BV-kEw" frameborder="0"
+                                        allowfullscreen></iframe>
                                 </div>
                                 <div class="project-overlay"></div>
                             </div>
                             <div class="project-content">
                                 <div class="project-header">
-                                    <h3>Video Editing Portfolio</h3>
+                                    <h3>Benteng Pendem Kalimaro | The Hidden Fortress in Purworejo</h3>
                                     <span class="project-category">Video Editing</span>
                                 </div>
                                 <p class="project-desc">
-                                    Professional video editing projects including motion graphics, visual effects, and
-                                    creative
-                                    content. Showcasing storytelling through visual media.
+                                    A short historical documentary titled “Benteng Pendem Kalimaro | The Hidden Fortress
+                                    in Purworejo”, created as a school
+                                    practical exam project.
+
+                                    I was involved as Director, Cameraman, Drone Pilot, and Video Editor, handling
+                                    everything from planning, shooting,
+                                    aerial footage, to editing.
+
+                                    This project reflects my interest in visual storytelling, history, and collaborative
+                                    creative production.
                                 </p>
                                 <div class="project-links">
-                                    <a href="https://www.youtube.com/@santstyle_mv" target="_blank"
+                                    <a href="https://youtu.be/oGnX1BV-kEw?si=r2CswKGHSlhKtwl2" target="_blank"
                                         class="project-btn youtube-btn">
                                         <i class='bx bxl-youtube'></i>
                                         <span>Watch on YouTube</span>
@@ -366,8 +417,144 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Stats Section -->
-                    <!-- <div class="project-stats">
+                    <!-- Hobby Section Start -->
+                    <div class="projects-wrapper">
+                        <div class="projects-header">
+                            <h2 class="projects-title">
+                                <span class="projects-gradient">Hobby Project</span>
+                            </h2>
+                            <p class="projects-sub">Amv Editor, Motion Graphic</p>
+                        </div>
+                        <!-- Projects Grid -->
+                        <div class="projects-grid">
+                            <!-- Hobby Editing Project -->
+                            <div class="project-card stagger-fade" data-category="video" style="--stagger-delay: 2;">
+                                <div class="project-image">
+                                    <div class="project-icon">
+                                        <iframe src="https://www.youtube.com/embed/T1X2FCVeUc0" frameborder="0"
+                                            allowfullscreen></iframe>
+                                    </div>
+                                    <div class="project-overlay"></div>
+                                </div>
+                                <div class="project-content">
+                                    <div class="project-header">
+                                        <h3>『PART MEP』AMV COLORFULL RIMURU IDOL</h3>
+                                        <span class="project-category">Anime Music Video</span>
+                                    </div>
+                                    <p class="project-desc">
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="project-card stagger-fade" data-category="video" style="--stagger-delay: 2;">
+                                <div class="project-image">
+                                    <div class="project-icon">
+                                        <iframe src="https://www.youtube.com/embed/LJXiGZBKhaM" frameborder="0"
+                                            allowfullscreen></iframe>
+                                    </div>
+                                    <div class="project-overlay"></div>
+                                </div>
+                                <div class="project-content">
+                                    <div class="project-header">
+                                        <h3>AMV CANDY COLORFULL LDR SHOTI</h3>
+                                        <span class="project-category">Anime Music Video</span>
+                                    </div>
+                                    <p class="project-desc">
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="project-card stagger-fade" data-category="video" style="--stagger-delay: 2;">
+                                <div class="project-image">
+                                    <div class="project-icon">
+                                        <iframe src="https://www.youtube.com/embed/yaUoCjYX1uw" frameborder="0"
+                                            allowfullscreen></iframe>
+                                    </div>
+                                    <div class="project-overlay"></div>
+                                </div>
+                                <div class="project-content">
+                                    <div class="project-header">
+                                        <h3>AMV CANDY COLORFULL CHECKLIST RIMURU TEMPEST</h3>
+                                        <span class="project-category">Anime Music Video</span>
+                                    </div>
+                                    <p class="project-desc">
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="project-card stagger-fade" data-category="video" style="--stagger-delay: 2;">
+                                <div class="project-image">
+                                    <div class="project-icon">
+                                        <iframe src="https://www.youtube.com/embed/uORf64iZTOc" frameborder="0"
+                                            allowfullscreen></iframe>
+                                    </div>
+                                    <div class="project-overlay"></div>
+                                </div>
+                                <div class="project-content">
+                                    <div class="project-header">
+                                        <h3>AMV CANDY WILLIAM BLACK - DEEP END | FRIEREN & SERIE</h3>
+                                        <span class="project-category">Anime Music Video</span>
+                                    </div>
+                                    <p class="project-desc">
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="project-card stagger-fade" data-category="video" style="--stagger-delay: 2;">
+                                <div class="project-image">
+                                    <div class="project-icon">
+                                        <iframe src="https://www.youtube.com/embed/L5n_kiDOkP4" frameborder="0"
+                                            allowfullscreen></iframe>
+                                    </div>
+                                    <div class="project-overlay"></div>
+                                </div>
+                                <div class="project-content">
+                                    <div class="project-header">
+                                        <h3>AMV CANDY LEVEL UP KITA IKUYO BOCCHI THE ROCK</h3>
+                                        <span class="project-category">Anime Music Video</span>
+                                    </div>
+                                    <p class="project-desc">
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="project-card stagger-fade" data-category="video" style="--stagger-delay: 2;">
+                                <div class="project-image">
+                                    <div class="project-icon">
+                                        <iframe src="https://www.youtube.com/embed/N66x5S4WaoU" frameborder="0"
+                                            allowfullscreen></iframe>
+                                    </div>
+                                    <div class="project-overlay"></div>
+                                </div>
+                                <div class="project-content">
+                                    <div class="project-header">
+                                        <h3>SHIKIMORI SILVERTONGUE [AMV]</h3>
+                                        <span class="project-category">Anime Music Video</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="project-card stagger-fade" data-category="video" style="--stagger-delay: 2;">
+                                <div class="project-image">
+                                    <div class="project-icon">
+                                        <iframe src="https://www.youtube.com/embed/7fXGSQ7ikBY" frameborder="0"
+                                            allowfullscreen></iframe>
+                                    </div>
+                                    <div class="project-overlay"></div>
+                                </div>
+                                <div class="project-content">
+                                    <div class="project-header">
+                                        <h3>AMV Collaboration Typography Candy FireFlies Kikuchi Fuuka & Rimuru</h3>
+                                        <span class="project-category">Anime Music Video</span>
+                                    </div>
+                                    <p class="project-desc">
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Hobby Section End -->
+                        <!-- Stats Section -->
+                        <!-- <div class="project-stats">
                         <div class="stat-item">
                             <div class="stat-number">50+</div>
                             <div class="stat-label">Security Tests</div>
@@ -385,11 +572,11 @@
                             <div class="stat-label">Specialties</div>
                         </div>
                     </div> -->
-                </div>
+                    </div>
             </section>
             <!-- Project Section End -->
             <!-- Skiils Section  Start -->
-            <section class="expertise-section fade-in-up" id="expertise" >
+            <section class="expertise-section fade-in-up" id="expertise">
                 <div class="expertise-wrapper">
                     <!-- Section Header -->
                     <div class="expertise-header" id="skills">
